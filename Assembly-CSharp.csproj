@@ -46,8 +46,21 @@
     <Analyzer Include="D:\Unity\Unity\6000.0.26f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\GameScript\GroundManager.cs" />
+    <Compile Include="Assets\GameScript\EventUtility\IEventMessage.cs" />
+    <Compile Include="Assets\GameScript\Ground\Ground.cs" />
+    <Compile Include="Assets\GameScript\EventUtility\IEventUtility.cs" />
+    <Compile Include="Assets\GameScript\Ground\GroundEnum.cs" />
+    <Compile Include="Assets\GameScript\Ground\GroundManager.cs" />
+    <Compile Include="Assets\GameScript\UI\UIManager.cs" />
+    <Compile Include="Assets\GameScript\GameLauncher\GameLauncher.cs" />
+    <Compile Include="Assets\GameScript\PlayerInput\PlayerController.cs" />
+    <Compile Include="Assets\GameScript\Ground\IGround.cs" />
+    <Compile Include="Assets\GameScript\EventUtility\EventUtilityModel.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\GameScript\CameraManager\CameraManager.cs" />
+    <Compile Include="Assets\GameScript\EventUtility\EventMono.cs" />
+    <Compile Include="Assets\GameScript\EventUtility\EventUtility.cs" />
+    <Compile Include="Assets\GameScript\EventUtility\PostWrapper.cs" />
     <Reference Include="UnityEngine">
       <HintPath>D:\Unity\Unity\6000.0.26f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
