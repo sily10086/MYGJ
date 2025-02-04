@@ -1,5 +1,4 @@
 # 忽略用户数据，如项目设置、临时文件等
 Library/
-ProjectSettings/
 Temp/
 #

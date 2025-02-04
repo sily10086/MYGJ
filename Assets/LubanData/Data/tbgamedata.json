@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 0,
+    "InitData": 50
+  },
+  {
+    "Id": 1,
+    "InitData": 150
+  },
+  {
+    "Id": 2,
+    "InitData": 50
+  },
+  {
+    "Id": 3,
+    "InitData": 0
+  },
+  {
+    "Id": 4,
+    "InitData": 0
+  },
+  {
+    "Id": 5,
+    "InitData": 0
+  }
+]

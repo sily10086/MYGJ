@@ -10,6 +10,7 @@ namespace GameScript
         [SerializeField] private GameObject _groundManager;
         [SerializeField] private GameObject _eventManager;
         [SerializeField] private GameObject _playerController;
+        [SerializeField] private GameObject _uIManager;
         private void Awake()
         {
             _eventManager = Instantiate(_eventManager);
@@ -18,11 +19,13 @@ namespace GameScript
             _groundManager.transform.position = Vector3.zero;
             _playerController = Instantiate(_playerController);
             _playerController.transform.position = Vector3.zero;
+            _uIManager = Instantiate(_uIManager);
+            _uIManager.transform.position = Vector3.zero;
         }
 
         private void Start()
         {
-            
+            GameData.GameData.Init();
         }
 
         private void Update()

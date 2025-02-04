@@ -985,6 +985,10 @@
       <Project>{75ac9ef6-74b5-f21e-ef86-dea89b51c96c}</Project>
       <Name>VHierarchy</Name>
     </ProjectReference>
+    <ProjectReference Include="Luban.Runtime.csproj">
+      <Project>{fb7ca564-36a1-24ff-683b-262ebed230ed}</Project>
+      <Name>Luban.Runtime</Name>
+    </ProjectReference>
     <ProjectReference Include="UniTask.csproj">
       <Project>{ced25133-21a9-049e-8a83-388ef62bcef0}</Project>
       <Name>UniTask</Name>
@@ -996,6 +1000,10 @@
     <ProjectReference Include="UniTask.DOTween.csproj">
       <Project>{5dd0083a-fc9d-ffca-b3ee-254e24bbbfa8}</Project>
       <Name>UniTask.DOTween</Name>
+    </ProjectReference>
+    <ProjectReference Include="Luban.Editor.csproj">
+      <Project>{3e33189d-21a0-4da3-1a79-28aba9d62ee7}</Project>
+      <Name>Luban.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="UniTask.TextMeshPro.csproj">
       <Project>{720f7e6a-6eae-e929-b6bc-3098b05cf05c}</Project>

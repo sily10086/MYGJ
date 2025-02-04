@@ -8,7 +8,7 @@ namespace Common.Event
         /// </summary>
         /// <typeparam name="TEvent">事件类型</typeparam>
         /// <param name="listener">事件监听器</param>
-        public void AddListener<TEvent>(System.Action<IEventMessage> listener) where TEvent : struct, IEventMessage;
+        public void AddListener<TEvent>(System.Action<IEventMessage> listener) where TEvent : class, IEventMessage;
 
         /// <summary>
         /// 添加事件监听器，使用事件类型

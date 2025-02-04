@@ -3,14 +3,15 @@ using UnityEngine;
 
 namespace Common.Event
 {
-    public class EventMono:MonoBehaviour
+    public class EventManager:MonoBehaviour
     {
-        private static EventMono _instance;
-        public static EventMono Instance{get{return _instance;}}
+        private static EventManager _instance;
+        public static EventManager Instance{get{return _instance;}}
         private EventUtility eventUtility;
 
         private void Awake()
         {
+            _instance = this;
             eventUtility = new EventUtility();
         }
 

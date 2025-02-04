@@ -48,19 +48,39 @@
   <ItemGroup>
     <Compile Include="Assets\GameScript\EventUtility\IEventMessage.cs" />
     <Compile Include="Assets\GameScript\Ground\Ground.cs" />
+    <Compile Include="Assets\LubanData\Code\GameDataType.cs" />
     <Compile Include="Assets\GameScript\EventUtility\IEventUtility.cs" />
-    <Compile Include="Assets\GameScript\Ground\GroundEnum.cs" />
+    <Compile Include="Assets\LubanData\Code\TbGameData.cs" />
+    <Compile Include="Assets\GameScript\GameData\GameData.cs" />
     <Compile Include="Assets\GameScript\Ground\GroundManager.cs" />
+    <Compile Include="Assets\LubanData\Code\Tables.cs" />
     <Compile Include="Assets\GameScript\UI\UIManager.cs" />
     <Compile Include="Assets\GameScript\GameLauncher\GameLauncher.cs" />
     <Compile Include="Assets\GameScript\PlayerInput\PlayerController.cs" />
+    <Compile Include="Assets\GameScript\Ground\CenterGround.cs" />
+    <Compile Include="Assets\LubanData\Code\GameData.cs" />
+    <Compile Include="Assets\LubanData\Code\vector2.cs" />
+    <Compile Include="Assets\GameScript\UI\UIEventManager.cs" />
     <Compile Include="Assets\GameScript\Ground\IGround.cs" />
     <Compile Include="Assets\GameScript\EventUtility\EventUtilityModel.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\LubanData\Code\vector3.cs" />
+    <Compile Include="Assets\GameScript\ClickHighlight\Scripts\SelectableObject.cs" />
+    <Compile Include="Assets\GameScript\ClickHighlight\Scripts\SimpleOutline.cs" />
+    <Compile Include="Assets\GameScript\UI\GroundDataUIPanel.cs" />
     <Compile Include="Assets\GameScript\CameraManager\CameraManager.cs" />
-    <Compile Include="Assets\GameScript\EventUtility\EventMono.cs" />
+    <Compile Include="Assets\GameScript\Luban\LuBanData.cs" />
+    <Compile Include="Assets\GameScript\EventUtility\EventManager.cs" />
     <Compile Include="Assets\GameScript\EventUtility\EventUtility.cs" />
+    <Compile Include="Assets\GameScript\Ground\GroundType.cs" />
+    <Compile Include="Assets\GameScript\ClickHighlight\Scripts\MouseClick.cs" />
+    <Compile Include="Assets\GameScript\UI\GameDataPanel.cs" />
+    <Compile Include="Assets\LubanData\Code\vector4.cs" />
     <Compile Include="Assets\GameScript\EventUtility\PostWrapper.cs" />
+    <None Include="Assets\Resources\Shaders\OutlineMask.shader" />
+    <None Include="Assets\LubanData\Data\tbgamedata.json" />
+    <None Include="Assets\Resources\Shaders\OutlineFill.shader" />
+    <None Include="Packages\com.code-philosophy.luban\package.json" />
     <Reference Include="UnityEngine">
       <HintPath>D:\Unity\Unity\6000.0.26f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -944,6 +964,10 @@
       <Project>{75ac9ef6-74b5-f21e-ef86-dea89b51c96c}</Project>
       <Name>VHierarchy</Name>
     </ProjectReference>
+    <ProjectReference Include="Luban.Runtime.csproj">
+      <Project>{fb7ca564-36a1-24ff-683b-262ebed230ed}</Project>
+      <Name>Luban.Runtime</Name>
+    </ProjectReference>
     <ProjectReference Include="UniTask.csproj">
       <Project>{ced25133-21a9-049e-8a83-388ef62bcef0}</Project>
       <Name>UniTask</Name>
@@ -955,6 +979,10 @@
     <ProjectReference Include="UniTask.DOTween.csproj">
       <Project>{5dd0083a-fc9d-ffca-b3ee-254e24bbbfa8}</Project>
       <Name>UniTask.DOTween</Name>
+    </ProjectReference>
+    <ProjectReference Include="Luban.Editor.csproj">
+      <Project>{3e33189d-21a0-4da3-1a79-28aba9d62ee7}</Project>
+      <Name>Luban.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="UniTask.TextMeshPro.csproj">
       <Project>{720f7e6a-6eae-e929-b6bc-3098b05cf05c}</Project>

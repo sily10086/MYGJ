@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace GameScript.Ground
@@ -10,14 +11,19 @@ namespace GameScript.Ground
     {
         [SerializeField] private GameObject _voidGround;
         [SerializeField] private GameObject _buildGround;
-        [SerializeField] private GameObject _outLineGround;
-        [SerializeField] private GroundEnum _type;
-
+        [SerializeField] private GroundType _type;
+        [SerializeField] private SimpleOutline _outline;
+        
+        [Header("等级")]
+        [SerializeField] private int _intiLevel;
+        [SerializeField] private int _currentLevel;
+        [SerializeField] private int _maxLevel;
+        
+        
         private void Awake()
         {
             _buildGround = null;
-            if(_type==GroundEnum.None) _voidGround.SetActive(true);
-            _outLineGround.SetActive(false);
+            if(_type==GroundType.None) _voidGround.SetActive(true);
         }
 
         #region 接口
@@ -29,24 +35,28 @@ namespace GameScript.Ground
 
         public void IOpenOutLineGround()
         {
-            _outLineGround.SetActive(true);
+            _outline.enabled = true;
         }
 
         public void ICloseOutLineGround()
         {
-            _outLineGround.SetActive(false);
+            _outline.enabled = false;
         }
 
-        public void IChangeGroundType(GroundEnum type)
+        public void IChangeGroundType(GroundType type)
         {
             _type = type;
         }
         
-        public GroundEnum IGetGroundType()
+        public GroundType IGetGroundType()
         {
             return _type;
         }
 
+        public int IGetGroundLevel()
+        {
+            return _currentLevel;
+        }
         #endregion
         
     }

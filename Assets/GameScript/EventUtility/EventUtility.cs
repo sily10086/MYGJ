@@ -84,7 +84,7 @@ namespace Common.Event
         /// </summary>
         /// <typeparam name="TEvent">事件类型</typeparam>
         /// <param name="listener">事件监听器</param>
-        public void AddListener<TEvent>(Action<IEventMessage> listener) where TEvent : struct, IEventMessage
+        public void AddListener<TEvent>(Action<IEventMessage> listener) where TEvent : class, IEventMessage
         {
             // 获取事件类型的哈希码作为事件ID
             Type eventType = typeof(TEvent);

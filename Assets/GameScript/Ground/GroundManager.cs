@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Common.Event;
 using Cysharp.Threading.Tasks;
+using GameScript.UI;
 using UnityEngine;
 
 namespace GameScript.Ground
@@ -148,6 +150,9 @@ namespace GameScript.Ground
         {
             if(currentGround) _groundSCDic[currentGround]?.ICloseOutLineGround();
             currentGround = ground;
+            var openLeftUIEvent = UIEventManager.GetEvent<OpenLeftUIEvent>();
+            openLeftUIEvent.groundSC = currentGround?.GetComponent<IGround>();
+            EventManager.Instance.GetEventUtility().SendMessage(openLeftUIEvent);
             if(!currentGround) return;
             _groundSCDic[currentGround]?.IOpenOutLineGround();
         }
