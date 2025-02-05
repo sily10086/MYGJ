@@ -19,6 +19,9 @@ namespace GameScript.Ground
         [SerializeField] private int _currentLevel;
         [SerializeField] private int _maxLevel;
         
+        [Header("劳动力")]
+        [SerializeField] private int _usePopulation;
+        
         
         private void Awake()
         {
@@ -56,6 +59,16 @@ namespace GameScript.Ground
         public int IGetGroundLevel()
         {
             return _currentLevel;
+        }
+
+        public int IGetUsePopulation()
+        {
+            return _usePopulation;
+        }
+
+        public void IAddPopulation()
+        {
+            _usePopulation++;
         }
         #endregion
         

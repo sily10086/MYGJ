@@ -851,9 +851,6 @@
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:\UnityProject\Civilization\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>D:\UnityProject\Civilization\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>D:\UnityProject\Civilization\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
@@ -862,6 +859,9 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>D:\UnityProject\Civilization\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>D:\UnityProject\Civilization\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
       <HintPath>D:\UnityProject\Civilization\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
@@ -981,13 +981,13 @@
       <Project>{803141a2-f8b6-ff56-771c-98f9a735e8e2}</Project>
       <Name>UniTask.Linq</Name>
     </ProjectReference>
-    <ProjectReference Include="VHierarchy.csproj">
-      <Project>{75ac9ef6-74b5-f21e-ef86-dea89b51c96c}</Project>
-      <Name>VHierarchy</Name>
-    </ProjectReference>
     <ProjectReference Include="Luban.Runtime.csproj">
       <Project>{fb7ca564-36a1-24ff-683b-262ebed230ed}</Project>
       <Name>Luban.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="VHierarchy.csproj">
+      <Project>{75ac9ef6-74b5-f21e-ef86-dea89b51c96c}</Project>
+      <Name>VHierarchy</Name>
     </ProjectReference>
     <ProjectReference Include="UniTask.csproj">
       <Project>{ced25133-21a9-049e-8a83-388ef62bcef0}</Project>

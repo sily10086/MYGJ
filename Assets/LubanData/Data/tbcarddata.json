@@ -1,0 +1,42 @@
+[
+  {
+    "CardType": 0,
+    "Name": "房屋"
+  },
+  {
+    "CardType": 1,
+    "Name": "人口"
+  },
+  {
+    "CardType": 2,
+    "Name": "农场"
+  },
+  {
+    "CardType": 3,
+    "Name": "市场"
+  },
+  {
+    "CardType": 4,
+    "Name": "伐木场"
+  },
+  {
+    "CardType": 5,
+    "Name": "采石场"
+  },
+  {
+    "CardType": 6,
+    "Name": "冶金坊"
+  },
+  {
+    "CardType": 7,
+    "Name": "学校"
+  },
+  {
+    "CardType": 8,
+    "Name": "武器坊"
+  },
+  {
+    "CardType": 9,
+    "Name": "其他"
+  }
+]

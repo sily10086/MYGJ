@@ -47,17 +47,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\GameScript\EventUtility\IEventMessage.cs" />
+    <Compile Include="Assets\LubanData\Code\CardType.cs" />
     <Compile Include="Assets\GameScript\Ground\Ground.cs" />
     <Compile Include="Assets\LubanData\Code\GameDataType.cs" />
     <Compile Include="Assets\GameScript\EventUtility\IEventUtility.cs" />
     <Compile Include="Assets\LubanData\Code\TbGameData.cs" />
     <Compile Include="Assets\GameScript\GameData\GameData.cs" />
     <Compile Include="Assets\GameScript\Ground\GroundManager.cs" />
+    <Compile Include="Assets\GameScript\ClickHighlight\SimpleOutline.cs" />
+    <Compile Include="Assets\LubanData\Code\CardData.cs" />
     <Compile Include="Assets\LubanData\Code\Tables.cs" />
     <Compile Include="Assets\GameScript\UI\UIManager.cs" />
     <Compile Include="Assets\GameScript\GameLauncher\GameLauncher.cs" />
     <Compile Include="Assets\GameScript\PlayerInput\PlayerController.cs" />
+    <Compile Include="Assets\LubanData\Code\TbCardData.cs" />
     <Compile Include="Assets\GameScript\Ground\CenterGround.cs" />
+    <Compile Include="Assets\GameScript\UI\ICard.cs" />
     <Compile Include="Assets\LubanData\Code\GameData.cs" />
     <Compile Include="Assets\LubanData\Code\vector2.cs" />
     <Compile Include="Assets\GameScript\UI\UIEventManager.cs" />
@@ -65,20 +70,24 @@
     <Compile Include="Assets\GameScript\EventUtility\EventUtilityModel.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\LubanData\Code\vector3.cs" />
-    <Compile Include="Assets\GameScript\ClickHighlight\Scripts\SelectableObject.cs" />
-    <Compile Include="Assets\GameScript\ClickHighlight\Scripts\SimpleOutline.cs" />
     <Compile Include="Assets\GameScript\UI\GroundDataUIPanel.cs" />
     <Compile Include="Assets\GameScript\CameraManager\CameraManager.cs" />
     <Compile Include="Assets\GameScript\Luban\LuBanData.cs" />
     <Compile Include="Assets\GameScript\EventUtility\EventManager.cs" />
+    <Compile Include="Assets\GameScript\ClickHighlight\SelectableObject.cs" />
     <Compile Include="Assets\GameScript\EventUtility\EventUtility.cs" />
     <Compile Include="Assets\GameScript\Ground\GroundType.cs" />
-    <Compile Include="Assets\GameScript\ClickHighlight\Scripts\MouseClick.cs" />
+    <Compile Include="Assets\GameScript\UI\CardMono.cs" />
     <Compile Include="Assets\GameScript\UI\GameDataPanel.cs" />
+    <Compile Include="Assets\GameScript\ClickHighlight\MouseClick.cs" />
     <Compile Include="Assets\LubanData\Code\vector4.cs" />
+    <Compile Include="Assets\GameScript\UI\CardManager.cs" />
     <Compile Include="Assets\GameScript\EventUtility\PostWrapper.cs" />
     <None Include="Assets\Resources\Shaders\OutlineMask.shader" />
     <None Include="Assets\LubanData\Data\tbgamedata.json" />
+    <None Include="Assets\GameAsset\Shaders\URP_ShaderGraphCustomLighting-main\CustomLighting.hlsl" />
+    <None Include="Assets\GameAsset\Shaders\URP_ShaderGraphCustomLighting-main\package.json" />
+    <None Include="Assets\LubanData\Data\tbcarddata.json" />
     <None Include="Assets\Resources\Shaders\OutlineFill.shader" />
     <None Include="Packages\com.code-philosophy.luban\package.json" />
     <Reference Include="UnityEngine">
@@ -834,9 +843,6 @@
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:\UnityProject\Civilization\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>D:\UnityProject\Civilization\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>D:\UnityProject\Civilization\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
@@ -845,6 +851,9 @@
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>D:\UnityProject\Civilization\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ShaderGraph.Editor">
+      <HintPath>D:\UnityProject\Civilization\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
       <HintPath>D:\UnityProject\Civilization\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
@@ -960,13 +969,13 @@
       <Project>{803141a2-f8b6-ff56-771c-98f9a735e8e2}</Project>
       <Name>UniTask.Linq</Name>
     </ProjectReference>
-    <ProjectReference Include="VHierarchy.csproj">
-      <Project>{75ac9ef6-74b5-f21e-ef86-dea89b51c96c}</Project>
-      <Name>VHierarchy</Name>
-    </ProjectReference>
     <ProjectReference Include="Luban.Runtime.csproj">
       <Project>{fb7ca564-36a1-24ff-683b-262ebed230ed}</Project>
       <Name>Luban.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="VHierarchy.csproj">
+      <Project>{75ac9ef6-74b5-f21e-ef86-dea89b51c96c}</Project>
+      <Name>VHierarchy</Name>
     </ProjectReference>
     <ProjectReference Include="UniTask.csproj">
       <Project>{ced25133-21a9-049e-8a83-388ef62bcef0}</Project>

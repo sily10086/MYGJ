@@ -34,10 +34,10 @@ namespace GameScript.Ground
             InitGrounds();
         }
 
-        private async void Start()
+        private void Start()
         {
-            await WhileCreateGround();
-            await OpenGroundLayer(initGroundLayer,true);
+            WhileCreateGround();
+            OpenGroundLayer(initGroundLayer);
         }
 
         #endregion
@@ -52,29 +52,24 @@ namespace GameScript.Ground
             }
         }
 
-        private async UniTask WhileCreateGround()
+        private void WhileCreateGround()
         {
             for (int i = 0; i < maxGroundLayer; i++)
             {
-                await UniTask.Yield();
-                await CreateGround(i);
-                //CreateGround(i);
+                CreateGround(i);
             }
 
             // DebugDic();
         }
 
-        private async UniTask CreateGround(int layer)
+        private void CreateGround(int layer)
         {
             currentGroundLayer = layer + 1;
             var currentList = _groundDic[layer];
-            //var nextList = grounds[layer + 1];
             List<GameObject> tempNextList = new List<GameObject>(); // 临时集合
 
             foreach (var lastObj in currentList)
             {
-                await UniTask.Delay(TimeSpan.FromSeconds(0.02f));
-                //await UniTask.Yield();
                 foreach (var target in rayDirection)
                 {
                     var startPos = lastObj.transform.position;
@@ -91,16 +86,12 @@ namespace GameScript.Ground
                         obj.name = $"Ground.Layer{layer + 1}";
                         tempNextList.Add(obj); // 添加到临时集合
                         _groundSCDic.Add(obj,obj.GetComponent<IGround>());
+                        Physics.SyncTransforms();
                     }
                 }
             }
-
+            
             _groundDic[layer + 1] = tempNextList;
-            // 在循环结束后将临时集合的内容添加到 nextList
-            /*foreach (var obj in tempNextList)
-            {
-                nextList.Add(obj);
-            }*/
         }
         
         /// <summary>
@@ -129,10 +120,8 @@ namespace GameScript.Ground
         /// 打开多少层地块
         /// </summary>
         /// <param name="layer"></param>
-        /// <param name="isInit">是否处于初始化 默认值为false</param>
-        public async UniTask OpenGroundLayer(int layer,bool isInit=false)
+        public void OpenGroundLayer(int layer)
         {
-            if(isInit) await UniTask.Delay(TimeSpan.FromSeconds(2.5f));
             //if(initGroundLayer>=layer) return;
             foreach (var val in _groundDic)
             {

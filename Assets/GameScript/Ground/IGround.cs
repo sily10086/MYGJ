@@ -10,5 +10,7 @@ namespace GameScript.Ground
         void IChangeGroundType(GroundType type);
         GroundType IGetGroundType();
         int IGetGroundLevel();
+        int IGetUsePopulation();
+        void IAddPopulation();
     }
 }

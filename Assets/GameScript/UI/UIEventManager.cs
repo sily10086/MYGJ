@@ -57,4 +57,9 @@ namespace GameScript.UI
     {
         public IGround groundSC = null;
     }
+
+    public class CardUIEvent : IEventMessage
+    {
+        public GameObject card = null;
+    }
 }
