@@ -1,5 +1,4 @@
-﻿using System;
-using Common.Event;
+﻿using Common.Event;
 using UnityEngine;
 
 namespace GameScript.UI
@@ -12,15 +11,11 @@ namespace GameScript.UI
         [SerializeField] private GameObject _right;
         
         [SerializeField] private GroundDataUIPanel _groundDataUIPanel;
-        
-        private static UIManager _instance;
-        public static UIManager Instance{get{return _instance;}}
 
         #region 生命周期
 
         private void Awake()
         {
-            _instance = this;
             _top.SetActive(true);
             _left.SetActive(false);
             _bottom.SetActive(true);
@@ -42,6 +37,10 @@ namespace GameScript.UI
                 .AddListener<UpdateTopUIEvent>(UpdateTopUI);
             EventManager.Instance.GetEventUtility()
                 .AddListener<OpenLeftUIEvent>(OpenLeftUI);
+            EventManager.Instance.GetEventUtility()
+                .AddListener<UpdateLeftUIEvent>(UpdateLeftUI);
+            EventManager.Instance.GetEventUtility()
+                .AddListener<UpdateUseCardSlot>(UpdateUseCardSlot);
         }
 
         #endregion
@@ -72,6 +71,11 @@ namespace GameScript.UI
 
         #region 更新
 
+        private void UpdateUseCardSlot(IEventMessage eventMessage)
+        {
+            if(eventMessage is not UpdateUseCardSlot message) return;
+            if(message.groundSC!=null) _groundDataUIPanel.UpdateUseCardSlot(message.groundSC);
+        }
         private void OpenLeftUI(IEventMessage eventMessage)
         {
             if(eventMessage is not OpenLeftUIEvent message) return;
@@ -91,6 +95,8 @@ namespace GameScript.UI
         
         private void UpdateLeftUI(IEventMessage eventMessage)
         {
+            if(eventMessage is not UpdateLeftUIEvent message) return;
+            if(message.groundSC!=null) _groundDataUIPanel.UpdateGroundDataUI(message.groundSC);
             
         }
         
@@ -98,7 +104,6 @@ namespace GameScript.UI
         {
             
         }
-
         #endregion
         
     }

@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buildGround: {fileID: 2826570056616325934}
-  _type: 1
+  _type: 8
   _outline: {fileID: 352034209649774629}
   _intiLevel: 1
   _currentLevel: 0

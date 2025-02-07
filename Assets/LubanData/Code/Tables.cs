@@ -16,11 +16,17 @@ public partial class Tables
 {
     public TbCardData TbCardData {get; }
     public TbGameData TbGameData {get; }
+    public TbLV1Ground TbLV1Ground {get; }
+    public TbLV2Ground TbLV2Ground {get; }
+    public TbLV3Ground TbLV3Ground {get; }
 
     public Tables(System.Func<string, JSONNode> loader)
     {
         TbCardData = new TbCardData(loader("tbcarddata"));
         TbGameData = new TbGameData(loader("tbgamedata"));
+        TbLV1Ground = new TbLV1Ground(loader("tblv1ground"));
+        TbLV2Ground = new TbLV2Ground(loader("tblv2ground"));
+        TbLV3Ground = new TbLV3Ground(loader("tblv3ground"));
         ResolveRef();
     }
     
@@ -28,6 +34,9 @@ public partial class Tables
     {
         TbCardData.ResolveRef(this);
         TbGameData.ResolveRef(this);
+        TbLV1Ground.ResolveRef(this);
+        TbLV2Ground.ResolveRef(this);
+        TbLV3Ground.ResolveRef(this);
     }
 }
 

@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using Common.Event;
-using Cysharp.Threading.Tasks;
 using GameScript.UI;
 using UnityEngine;
 
@@ -163,7 +161,16 @@ namespace GameScript.Ground
         {
             return _groundSCDic[currentGround];
         }
-        
+
+        public GameObject GetCenterGround()
+        {
+            return startGround;
+        }
+
+        public IGround GetCenterGroundSC()
+        {
+            return startGround.GetComponent<IGround>();
+        }
         #endregion
         
     }

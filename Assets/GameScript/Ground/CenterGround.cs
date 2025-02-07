@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using cfg;
+using GameScript.Card;
 using UnityEngine;
 
 namespace GameScript.Ground
@@ -14,8 +16,9 @@ namespace GameScript.Ground
         [SerializeField] private int _currentLevel;
         [SerializeField] private int _maxLevel;
         [SerializeField] private List<GameObject> _centerBuild;
-
-        private int _useArmCount = 0;
+        
+        private int _useSlotCount = 0;
+        private readonly List<ICard> _cards = new ();
         
         
         private void Awake()
@@ -39,9 +42,9 @@ namespace GameScript.Ground
         {
             _outline.enabled = false;
         }
-        public void IChangeGroundType(GroundType type)
+        public void IChangeGroundType(CardType type)
         {
-            _type = type;
+            
         }
         public GroundType IGetGroundType()
         {
@@ -51,13 +54,37 @@ namespace GameScript.Ground
         {
             return _currentLevel;
         }
-        public int IGetUsePopulation()
+        public int IGetUseCardSlot()
         {
-            return _useArmCount;
+            return _useSlotCount;
         }
-        public void IAddPopulation()
+        public void IAddUsedCardSlot()
         {
-            _useArmCount++;
+            _useSlotCount++;
+        }
+        public void IAddCardToList(ICard card)
+        {
+            _cards.Add(card);
+        }
+        
+        public List<ICard> IGetCards()
+        {
+            return _cards;
+        }
+
+        public ICard IGetBuildCard()
+        {
+            return null;
+        }
+
+        public int IGetBuildingLevel()
+        {
+            return _currentLevel;
+        }
+
+        public void ISetBuildingLevel(int level)
+        {
+            _currentLevel = level;
         }
         
         #endregion

@@ -1,0 +1,30 @@
+[
+  {
+    "GroundType": 2,
+    "Path": "Building/LV1/Farm_3"
+  },
+  {
+    "GroundType": 3,
+    "Path": ""
+  },
+  {
+    "GroundType": 4,
+    "Path": "Building/LV1/Sawmill_3"
+  },
+  {
+    "GroundType": 5,
+    "Path": "Building/LV1/Quarry_3"
+  },
+  {
+    "GroundType": 6,
+    "Path": "Building/LV1/Metallurgy_3"
+  },
+  {
+    "GroundType": 7,
+    "Path": "Building/LV1/School_3"
+  },
+  {
+    "GroundType": 9,
+    "Path": "Building/LV1/Weapon_3"
+  }
+]

@@ -32,11 +32,11 @@
     "Name": "学校"
   },
   {
-    "CardType": 8,
+    "CardType": 9,
     "Name": "武器坊"
   },
   {
-    "CardType": 9,
+    "CardType": 11,
     "Name": "其他"
   }
 ]

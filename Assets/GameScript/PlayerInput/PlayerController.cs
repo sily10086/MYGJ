@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GameScript.Card;
 using GameScript.Ground;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,7 +9,9 @@ namespace GameScript.PlayerInput
 {
     public class PlayerController:MonoBehaviour
     {
-        private GraphicRaycaster graphicRaycaster = null;
+        private GraphicRaycaster graphicRaycaster;
+        private ICard _currentCard;
+        
         private void Awake()
         {
             CameraManager.CameraManager.SetMainCamera(Camera.main);
@@ -18,6 +21,12 @@ namespace GameScript.PlayerInput
         {
             if (Input.GetMouseButtonDown(0))
             {
+                if (_currentCard != null)
+                {
+                    _currentCard.IOnPlaceCard(Input.mousePosition);
+                    _currentCard = null;
+                    return;
+                }
                 Ray ray = CameraManager.CameraManager.mainCamera.ScreenPointToRay(Input.mousePosition);
                 bool hitIsGround = false;
                 bool hitIsCard = false;
@@ -41,6 +50,20 @@ namespace GameScript.PlayerInput
                 {
                     GroundManager.Instance.SetCurrentGround(null);
                 }
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                if (_currentCard != null)
+                {
+                    _currentCard.IOffClickCard();
+                    _currentCard = null;
+                }
+            }
+            
+            if (_currentCard!=null)
+            {
+                _currentCard.IGetGameObject().transform.position = Input.mousePosition;
             }
         }
 
@@ -77,6 +100,8 @@ namespace GameScript.PlayerInput
                 if (result.gameObject.CompareTag("Card"))
                 {
                     Debug.Log("Clicked on a UI element with the 'Card' tag!");
+                    _currentCard = result.gameObject.GetComponent<ICard>();
+                    _currentCard.IOnClickCard();
                     // 在这里添加点击到 "Card" 标签 UI 的逻辑
                     return true;
                 }
@@ -87,12 +112,11 @@ namespace GameScript.PlayerInput
                     return true;
                 }
             }
-
             return false;
         }
         private bool CheckGround(Ray ray)
         {
-            RaycastHit[] hits = new RaycastHit[10]; // 定义一个足够大的数组来存储命中结果
+            RaycastHit[] hits = new RaycastHit[100]; // 定义一个足够大的数组来存储命中结果
             int hitCount = Physics.RaycastNonAlloc(ray, hits, 100f); // 获取命中结果的数量
 
             for (int i = 0; i < hitCount; i++) // 遍历命中结果

@@ -21,8 +21,11 @@ namespace cfg
         Stone = 5,
         Iron = 6,
         Technology = 7,
-        Weapons = 8,
-        Other = 9,
+        WeaponsBuilding = 8,
+        Weapons = 9,
+        Arm = 10,
+        Other = 11,
+        UnrealCard = 12,
     }
 
 } 

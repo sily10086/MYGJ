@@ -1,5 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using cfg;
+using GameScript.Card;
+using GameScript.Luban;
 using UnityEngine;
 
 namespace GameScript.Ground
@@ -11,6 +13,7 @@ namespace GameScript.Ground
     {
         [SerializeField] private GameObject _voidGround;
         [SerializeField] private GameObject _buildGround;
+        [SerializeField] private GameObject _buildingGroundChild;
         [SerializeField] private GroundType _type;
         [SerializeField] private SimpleOutline _outline;
         
@@ -18,17 +21,50 @@ namespace GameScript.Ground
         [SerializeField] private int _intiLevel;
         [SerializeField] private int _currentLevel;
         [SerializeField] private int _maxLevel;
+
+        [Header("地块")] 
+        [SerializeField] private List<GameObject> _groundListLV1 = new();
+        [SerializeField] private List<GameObject> _groundListLV2 = new();
+        [SerializeField] private List<GameObject> _groundListLV3 = new();
         
-        [Header("劳动力")]
-        [SerializeField] private int _usePopulation;
-        
+        private int _useSlotCount;
+        private readonly List<ICard> _cards = new();
         
         private void Awake()
         {
-            _buildGround = null;
-            if(_type==GroundType.None) _voidGround.SetActive(true);
+            _buildingGroundChild = null;
+            if (_type == GroundType.None)
+            {
+                _voidGround.SetActive(true);
+                _groundListLV1.ForEach(obj=>obj.SetActive(false));
+                _groundListLV2.ForEach(obj=>obj.SetActive(false));
+                _groundListLV3.ForEach(obj=>obj.SetActive(false));
+            }
+            else
+            {
+                _voidGround.SetActive(false);
+                _groundListLV1.ForEach(obj=>obj.SetActive(false));
+                _groundListLV2.ForEach(obj=>obj.SetActive(false));
+                _groundListLV3.ForEach(obj=>obj.SetActive(false));
+            }
+            _outline.enabled = false;
         }
 
+        private GroundType GroundTypeMapping(CardType type)
+        {
+            return type switch
+            {
+                CardType.Technology => GroundType.Technology,
+                CardType.Food => GroundType.Food,
+                CardType.Gold => GroundType.Gold,
+                CardType.Wood => GroundType.Wood,
+                CardType.Iron => GroundType.Iron,
+                CardType.Stone => GroundType.Stone,
+                CardType.WeaponsBuilding => GroundType.Weapons,
+                _ => GroundType.None
+            };
+        }
+        
         #region 接口
 
         public GameObject IGetBuildGround()
@@ -46,9 +82,48 @@ namespace GameScript.Ground
             _outline.enabled = false;
         }
 
-        public void IChangeGroundType(GroundType type)
+        public void IChangeGroundType(CardType type)
         {
-            _type = type;
+            _type = GroundTypeMapping(type);
+            if(_type!=GroundType.None) _voidGround.SetActive(false);
+            if (_buildingGroundChild)
+            {
+                _buildingGroundChild.SetActive(false);
+                _buildingGroundChild = null;
+            }
+            if (_currentLevel == 1)
+            {
+                foreach (var obj in _groundListLV1)
+                {
+                    if (obj.GetComponent<GroundMeshType>().GetGroundType() == _type)
+                    {
+                        obj.gameObject.SetActive(true);
+                        _buildingGroundChild = obj;
+                    }
+                }
+            }
+            if (_currentLevel == 2)
+            {
+                foreach (var obj in _groundListLV2)
+                {
+                    if (obj.GetComponent<GroundMeshType>().GetGroundType() == _type)
+                    {
+                        obj.gameObject.SetActive(true);
+                        _buildingGroundChild = obj;
+                    }
+                }
+            }
+            if (_currentLevel == 3)
+            {
+                foreach (var obj in _groundListLV3)
+                {
+                    if (obj.GetComponent<GroundMeshType>().GetGroundType() == _type)
+                    {
+                        obj.gameObject.SetActive(true);
+                        _buildingGroundChild = obj;
+                    }
+                }
+            }
         }
         
         public GroundType IGetGroundType()
@@ -61,14 +136,34 @@ namespace GameScript.Ground
             return _currentLevel;
         }
 
-        public int IGetUsePopulation()
+        public int IGetUseCardSlot()
         {
-            return _usePopulation;
+            return _useSlotCount;
         }
 
-        public void IAddPopulation()
+        public void IAddUsedCardSlot()
         {
-            _usePopulation++;
+            _useSlotCount++;
+        }
+
+        public void IAddCardToList(ICard card)
+        {
+            _cards.Add(card);
+        }
+
+        public List<ICard> IGetCards()
+        {
+            return _cards;
+        }
+        
+        public int IGetBuildingLevel()
+        {
+            return _currentLevel;
+        }
+
+        public void ISetBuildingLevel(int level)
+        {
+            _currentLevel = level;
         }
         #endregion
         

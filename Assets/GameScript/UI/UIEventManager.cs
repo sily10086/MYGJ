@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using cfg;
 using Common.Event;
 using GameScript.Ground;
 using UnityEngine;
@@ -58,8 +59,13 @@ namespace GameScript.UI
         public IGround groundSC = null;
     }
 
-    public class CardUIEvent : IEventMessage
+    public class UpdateLeftUIEvent : IEventMessage
     {
-        public GameObject card = null;
+        public IGround groundSC = null;
+    }
+
+    public class UpdateUseCardSlot : IEventMessage
+    {
+        public IGround groundSC = null;
     }
 }

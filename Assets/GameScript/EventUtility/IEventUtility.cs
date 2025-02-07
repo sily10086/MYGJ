@@ -1,4 +1,3 @@
-
 namespace Common.Event
 {
     public interface IEventUtility

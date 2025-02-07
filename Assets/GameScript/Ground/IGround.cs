@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using cfg;
+using GameScript.Card;
+using UnityEngine;
 
 namespace GameScript.Ground
 {
@@ -7,10 +10,14 @@ namespace GameScript.Ground
         GameObject IGetBuildGround();
         void IOpenOutLineGround();
         void ICloseOutLineGround();
-        void IChangeGroundType(GroundType type);
+        void IChangeGroundType(CardType type);
         GroundType IGetGroundType();
         int IGetGroundLevel();
-        int IGetUsePopulation();
-        void IAddPopulation();
+        int IGetUseCardSlot();
+        void IAddUsedCardSlot();
+        void IAddCardToList(ICard card);
+        List<ICard> IGetCards();
+        int IGetBuildingLevel();
+        void ISetBuildingLevel(int level);
     }
 }

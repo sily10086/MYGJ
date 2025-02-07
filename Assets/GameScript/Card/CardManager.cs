@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using cfg;
 using UnityEngine;
 
-namespace GameScript.UI
+namespace GameScript.Card
 {
     public  class CardManager : MonoBehaviour
     {
@@ -14,7 +14,12 @@ namespace GameScript.UI
         [SerializeField] private Vector3 _cardStartPos;
         [SerializeField] private Vector3 _cardIntervalPos;
 
-        private List<ICard> _cardList = new();
+        private readonly List<ICard> _cardList = new();
+
+        private void Awake()
+        {
+            _instance = this;
+        }
 
         private void Start()
         {
@@ -22,9 +27,8 @@ namespace GameScript.UI
             CreateCard(CardType.Technology);
             CreateCard(CardType.Iron);
             CreateCard(CardType.Wood);
-            CreateCard(CardType.Weapons);
+            CreateCard(CardType.WeaponsBuilding);
             CreateCard(CardType.Gold);
-            CreateCard(CardType.House);
             CreateCard(CardType.People);
         }
 
@@ -32,7 +36,7 @@ namespace GameScript.UI
         {
             var obj = Instantiate(_cardPrefab, _cardStartPos, Quaternion.identity);
             var sc = obj.GetComponent<ICard>();
-            sc.IInitCard(cardType, carLevel);
+            sc.IInitCard(cardType, carLevel,_cardList.Count);
             obj.transform.SetParent(transform);
             AddCard(sc);
         }
@@ -40,6 +44,7 @@ namespace GameScript.UI
         public void SubCard(ICard cardSC)
         {
             _cardList.Remove(cardSC);
+            SortCardList();
         }
         
         private void AddCard(ICard cardSC)

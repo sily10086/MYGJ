@@ -1,5 +1,4 @@
-﻿using System;
-using Common.Event;
+﻿using Common.Event;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +16,7 @@ namespace GameScript.UI
         private void Awake()
         {
             Init();
-            EventManager.Instance.GetEventUtility().AddListener<UpdateTopUIEvent>(UpdateGameData);
+            EventManager.Instance?.GetEventUtility().AddListener<UpdateTopUIEvent>(UpdateGameData);
         }
 
         private void Init()
