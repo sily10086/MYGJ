@@ -116,6 +116,7 @@ namespace GameScript.UI
                 GroundType.Technology => "学校",
                 GroundType.Food => "农田",
                 GroundType.Weapons => "武器坊",
+                GroundType.Iron => "冶金坊",
                 _ => "普通地块",
             };
         }
